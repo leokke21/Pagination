@@ -1,0 +1,23 @@
+
+/* Карточка группы */
+
+.content{
+    width: 90%;
+    margin: auto;
+    background-color: aliceblue;
+    padding: 15px;
+    border: 2px solid greenyellow;
+}
+.item{
+    width: 90%;
+    display: flex;
+    gap: 40px;
+}
+img{
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+.info{
+    width: 800px;
+}

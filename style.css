@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+
+}
+.content{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.card{
+    width: 300px;
+    height: 390px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-color: beige;
+    border: 1px solid black;
+    box-shadow: 3px 3px 12px 3px;
+    margin: 25px;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+.card p{
+    text-align: center;
+    padding: 8px;
+}
+.page_button{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: blue;
+    color: white;
+}
+.page_button:hover{
+    background-color: rgb(241, 115, 77);
+    color: rgb(177, 247, 168);
+
+}
+.selected{
+    background-color: red;
+}
+
+
+
+/* Переворот */
+
+
+.card-front,
+.backstory{
+    width: 100%; /*ширина 100% родителя*/
+    height: 100%; /*высота 100% родителя*/
+    position: absolute; /*абсолютное позиционирование элементов
+    внутри родителя с классом card*/
+    left: 0; /*координата позиционирования слева 0px*/
+    top: 0; /* координата позиционирования сверху 0px*/
+    text-align: center;
+    background-color: white;
+    backface-visibility: hidden;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.card-front{
+    
+    background-color: beige;
+}
+
+.backstory{
+    transform: rotateY(180deg); /*поворот блока с описанием на 180 град, прячем его в начальном
+    состоянии, без наведения курсора мыши*/
+    background-color: rgb(199, 199, 175);
+}
+.card:hover .card-front{
+    transform: rotateY(180deg); /*разворачиваем
+    блок с изображением на 180 градусов*/
+}
+.card:hover .backstory{
+    transform: rotateY(360deg); /*возвращаем блок*/
+}
+
+/* Псевдоэлемент */
+
+
+
+#callback{
+    width: 300px;
+    height: 150px;
+    background-color: grey;
+    position: sticky;
+    left: 100%;
+    right: 0px;
+    bottom: 0px;
+    transform: translateX(100%);
+}
+/* стили для абзаца */
+#callback p{
+    color: #fff;
+    padding: 10px 15px 10px 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+}
+/* Стили для псевдоэлемента*/
+#callback:after{
+    content: 'Обратная связь';
+    color:white;
+    background-color:orangered;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0;
+    top:150px;
+    width: 150px; /* ширина псевдоэлемента равна высоте блока */
+    position: absolute; /*позиционирование абсолютное*/
+    right: 175px; /*позиция слева равен ширине блока №callback*/
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+}
+#callback:hover{
+    transform: translateX(0%);
+    transition: all 0.7s ease;
+}
