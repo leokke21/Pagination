@@ -25,6 +25,10 @@ $page_Count = (int) ceil ((int) $count[0]['kol']/ $countMusic_Pages);
     <h1>Музыканты</h1>
     <div class="content">
         <?php
+        $page;
+        if(!isset($_GET['page'])) {
+            $page = 1;
+        }
         if(count($_GET) == 0) {
             $page = 0;
 
@@ -61,7 +65,7 @@ $page_Count = (int) ceil ((int) $count[0]['kol']/ $countMusic_Pages);
     <div class="page_list" style="text-align: center">
             <?php
                 for( $p = 0; $p < $page_Count; $p++) { 
-                    if($_GET['page'] == $p) { ?>
+                    if($page == $p) { ?>
 
                         <a href="?page=<?= $p ?>">
                     <button class="page_button selected"><?= $p +1 ?></button>
